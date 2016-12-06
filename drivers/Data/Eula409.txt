@@ -1,0 +1,8 @@
+Welcome to the Nokia X ADB Driver installer.
+
+Please install this software at your own risk, and I will NOT responsible for anything you done, or your phone is made unusable or unstable, etc.
+
+If you do not agree with above statement, DO NOT install this software.
+
+Thanks,
+Stanley (AngSanley).

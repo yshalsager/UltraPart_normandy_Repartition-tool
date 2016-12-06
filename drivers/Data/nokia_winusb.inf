@@ -1,0 +1,174 @@
+;
+; Nokia WinUsb driver installation.
+;
+[Version]
+Signature           = "$Windows NT$"
+Class               = NokiaUsbDeviceClass
+ClassGuid           = {2CACFDB6-100E-4AE3-AB80-320A67FFAE7A}
+Provider            = %ProviderName%
+DriverVer           = 11/09/2013,1.0.0.1
+CatalogFile.NTx86   = nokia_winusb86.cat
+CatalogFile.NTamd64 = nokia_winusba64.cat
+
+[ClassInstall32]
+Addreg = NokiaWinusbClassReg
+
+[NokiaWinusbClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+
+
+[Manufacturer]
+%ProviderName% = NokiaDevices, NTx86, NTamd64
+
+
+[NokiaDevices.NTx86]
+
+;Nokia PIDs
+; For mass_storage,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06E6&MI_00
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_070B&MI_00
+; For mtp,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06E8&MI_01
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_0709&MI_01
+; For ptp,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06EA&MI_01
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_0707&MI_01
+; For rndis,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06EC&MI_02
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_0705&MI_02
+; For diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06EE&MI_02
+; For winusb_phonet,diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_070C&MI_03
+; For single adb
+%SingleAdbInterface%            = USB_Install, USB\VID_0421&PID_06E6
+%SingleAdbInterface%            = USB_Install, USB\VID_0421&PID_070F
+; For recovery adb
+%SingleRecoveryInterface%       = USB_Install, USB\VID_0421&PID_070D
+; For bootloader
+%SingleBootLoaderInterface%     = USB_Install, USB\VID_0421&PID_06E4
+%SingleBootLoaderInterface%     = USB_Install, USB\VID_0421&PID_070E
+
+;Qualcomm PIDs
+; For diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_901D&MI_01
+; For diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9025&MI_01
+; For rndis,diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_902D&MI_03
+; For mtp,diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_903A&MI_02
+; For diag,qdss,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9060&MI_03
+; For diag,qdss,rmnet_bam,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9084&MI_03
+; For rndis,diag,qdss,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9082&MI_05
+
+[NokiaDevices.NTamd64]
+
+;Nokia PIDs
+; For mass_storage,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06E6&MI_00
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_070B&MI_00
+; For mtp,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06E8&MI_01
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_0709&MI_01
+; For ptp,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06EA&MI_01
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_0707&MI_01
+; For rndis,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06EC&MI_02
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_0705&MI_02
+; For diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_06EE&MI_02
+; For winusb_phonet,diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_0421&PID_070C&MI_03
+; For single adb
+%SingleAdbInterface%            = USB_Install, USB\VID_0421&PID_06E6
+%SingleAdbInterface%            = USB_Install, USB\VID_0421&PID_070F
+; For recovery adb
+%SingleRecoveryInterface%       = USB_Install, USB\VID_0421&PID_070D
+; For bootloader
+%SingleBootLoaderInterface%     = USB_Install, USB\VID_0421&PID_06E4
+%SingleBootLoaderInterface%     = USB_Install, USB\VID_0421&PID_070E
+
+;Qualcomm PIDs
+; For diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_901D&MI_01
+; For diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9025&MI_01
+; For rndis,diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_902D&MI_03
+; For mtp,diag,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_903A&MI_02
+; For diag,qdss,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9060&MI_03
+; For diag,qdss,rmnet_bam,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9084&MI_03
+; For rndis,diag,qdss,adb
+%CompositeAdbInterface%         = USB_Install, USB\VID_05C6&PID_9082&MI_05
+
+[USB_Install]
+Include = winusb.inf
+Needs   = WINUSB.NT
+
+[USB_Install.Services]
+Include     = winusb.inf
+AddService  = WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[USB_Install.Wdf]
+KmdfService = WINUSB, WinUSB_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion  = 1.9
+
+[USB_Install.HW]
+AddReg  = Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{F72FE0D4-CBCB-407d-8814-9ED673D0DD6B}"
+
+[USB_Install.CoInstallers]
+AddReg    = CoInstallers_AddReg
+CopyFiles = CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\i386
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll  = 1
+WdfCoInstaller01009.dll = 1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll  = 2
+WdfCoInstaller01009.dll = 2
+
+[Strings]
+ProviderName                = "Nokia"
+SingleAdbInterface          = "Nokia ADB Interface"
+SingleRecoveryInterface     = "Nokia ADB Recovery Interface"
+CompositeAdbInterface       = "Nokia Composite ADB Interface"
+SingleBootLoaderInterface   = "Nokia Bootloader Interface"
+WinUSB_SvcDesc              = "Nokia USB Driver"
+DISK_NAME                   = "Nokia WinUsb installation disk"
+ClassName                   = "Nokia Device"

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+  <dpinst>
+
+<!-- The following search and subDirectory elements direct
+     DPInst to search all subdirectories (under the DPInst working directory) to locate driver
+     packages. -->
+    <search>
+      <subDirectory>Data</subDirectory>
+</search>
+
+<!-- The following language element localizes its child elements
+     for the English (Standard) language. The child elements
+     customize the text that appears on the DPInst wizard pages. -->
+    <language code="0x0409">
+      <dpinstTitle>Nokia X ADB Driver Installer</dpinstTitle>
+      <welcomeTitle>Welcome to the Nokia X ADB Driver Installer!</welcomeTitle>
+      <welcomeIntro>This wizard will walk you through updating the drivers for your Nokia X phone. 
+	  
+Please connect your Nokia X phone and enable USB Debugging before installing the driver.</welcomeIntro>
+      <eulaHeaderTitle>End User License Agreement</eulaHeaderTitle>
+      <eulaYesButton>I &amp;accept this EULA</eulaYesButton>
+      <eulaNoButton>I do n&amp;ot accept this EULA</eulaNoButton>
+      <installHeaderTitle>Installing the software for your Nokia X phone...</installHeaderTitle>
+      <finishTitle>Congratulations! You are finished installing your Nokia X phone.</finishTitle>
+      <finishText>Enjoy modifying your Nokia X phone!</finishText>
+      <eula type="txt" path="Data\Eula409.txt"/>
+    </language>
+
+<!-- The following three elements customize, but do not localize,
+     the icon and bitmaps that appear on the DPInst wizard pages. -->
+    <icon>Data\Eula.ico</icon>
+ <headerPath>Data\Header.bmp</headerPath>
+    <watermarkPath>Data\Watermark.bmp</watermarkPath>
+
+  </dpinst>
