@@ -40,6 +40,12 @@ ECHO  Please Boot to Recovery then Connect your
 ECHO  mobile to PC or use reboot option below
 ECHO  Make Sure You have installed ADB Drivers  
 ECHO. -----------------------------------------
+ECHO  Simple instructions: 
+ECHO  1- To Re-Partition Nokia X type: (1) then (f) then (c)
+ECHO  2- To Re-Partition Nokia XL type: (2) then (f) then (c)
+ECHO  3- To Restore Nokia X type: (3) then (f) then (c)
+ECHO  4- To Restore Nokia XL type: (4) then (f) then (c)
+ECHO. -----------------------------------------
 ECHO  Select What do you want to do by Entering number below
 echo   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
 echo.
@@ -53,8 +59,10 @@ ECHO  d)Install Nokia X/XL Drivers
 ECHO  i)Install TWRP 2.8.7 Recovery
 ECHO  r)Reboot To TWRP 2.8.7 Recovery
 ECHO  c)Check Partition Table
+ECHO  f)Format After Re-Partition (Necessary)
 ECHO. -----------------------------------------
 ECHO  x) Exit
+ECHO  Don't forget to flash new ROM
 echo. 
 set /P menu= Type menu number then press ENTER: 
 if %menu%==1 (
@@ -99,7 +107,12 @@ if %menu%==r (
 )
 if %menu%==c (
 	set menutext=Check Partition Table
-	call check.bat
+	call Check.bat
+	pause
+)
+if %menu%==f (
+	set menutext=Format After Re-Partition (Necessary)
+	call Format.bat
 	pause
 )
 if %menu%==x goto end
