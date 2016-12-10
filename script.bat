@@ -16,9 +16,9 @@ goto :eof
 cls
 ECHO.      -----------------------------------------
 ECHO        UltraPart: Re-Partition Nokia X/XL Tool
-ECHO                   Version 1.00
+ECHO                   Version 1.02
 ECHO.      -----------------------------------------
-ECHO       Developed by YSH ALSAGER (UltraDevs Team)
+ECHO       Developed by YSH ALSAGER -UltraDevs Team-
 ECHO.      -----------------------------------------
 ECHO           http://www.ultradevs.blogspot.com
 ECHO.      -----------------------------------------
@@ -41,10 +41,10 @@ ECHO  mobile to PC or use reboot option below
 ECHO  Make Sure You have installed ADB Drivers  
 ECHO. -----------------------------------------
 ECHO  Simple instructions: 
-ECHO  1- To Re-Partition Nokia X type: (1) then (f) then (c)
-ECHO  2- To Re-Partition Nokia XL type: (2) then (f) then (c)
-ECHO  3- To Restore Nokia X type: (3) then (f) then (c)
-ECHO  4- To Restore Nokia XL type: (4) then (f) then (c)
+ECHO  1- To Re-Partition Nokia X type: 1 then f then c
+ECHO  2- To Re-Partition Nokia XL type: 2 then f then c
+ECHO  3- To Restore Nokia X type: 3 then f then c
+ECHO  4- To Restore Nokia XL type: 4 then f then c
 ECHO. -----------------------------------------
 ECHO  Select What do you want to do by Entering number below
 echo   컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
@@ -58,8 +58,9 @@ ECHO. -----------------------------------------
 ECHO  d)Install Nokia X/XL Drivers
 ECHO  i)Install TWRP 2.8.7 Recovery
 ECHO  r)Reboot To TWRP 2.8.7 Recovery
+ECHO  b)Backup important partitions to PC
 ECHO  c)Check Partition Table
-ECHO  f)Format After Re-Partition (Necessary)
+ECHO  f)Format After Re-Partition -Necessary-
 ECHO. -----------------------------------------
 ECHO  x) Exit
 ECHO  Don't forget to flash new ROM
@@ -111,8 +112,13 @@ if %menu%==c (
 	pause
 )
 if %menu%==f (
-	set menutext=Format After Re-Partition (Necessary)
+	set menutext=Format After Re-Partition -Necessary-
 	call Format.bat
+	pause
+)
+if %menu%==b (
+	set menutext=Backup important partitions to PC
+	call BackupParts.bat && call :Copy_to_PC && start C:\Users\%username%\Documents\Partitons_Backup
 	pause
 )
 if %menu%==x goto end
@@ -134,6 +140,11 @@ echo ^> Wait for bootloader ready...
 echo ^> and flash TWRP-2.8.7.0...
 adb kill-server > nul && adb wait-for-device > nul && adb reboot-bootloader > nul && fastboot -i 0x0421 flash recovery recovery\TWRP-2.8.7.0-normandy.img && fastboot -i 0x0421 boot recovery\TWRP-2.8.7.0-normandy.img
 goto :eof
+
+:Copy_to_PC
+echo.
+echo ^> Copying to C:\Users\%username%\Documents\Partitons_Backup...
+adb kill-server > nul && adb pull /sdcard/mmcblk0p20.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p20.img > nul && adb pull /sdcard/mmcblk0p23.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p23.img > nul && adb pull /sdcard/mmcblk0p24.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p24.img > nul && adb pull /sdcard/mmcblk0p25.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p25.img > nul && adb pull /sdcard/mmcblk0p26.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p26.img > nul
 
 :end
 adb kill-server > nul

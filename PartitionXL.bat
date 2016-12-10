@@ -92,6 +92,6 @@ adb shell < %p%
 del %p%
 adb kill-server
 echo Done !
-echo Don't Forget To WIPE System,Data,Cache And Internal Storage
+echo Don't Forget To Format
 echo And Install ROM Again
 pause
