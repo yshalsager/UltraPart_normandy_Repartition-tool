@@ -16,7 +16,7 @@ goto :eof
 cls
 ECHO.      -----------------------------------------
 ECHO        UltraPart: Re-Partition Nokia X/XL Tool
-ECHO                   Version 1.02
+ECHO                   Version 1.04
 ECHO.      -----------------------------------------
 ECHO       Developed by YSH ALSAGER -UltraDevs Team-
 ECHO.      -----------------------------------------
@@ -28,7 +28,7 @@ goto :eof
 call :head
 echo.
 echo    %menutext%
-echo   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+echo   Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„
 goto :eof
 
 :menu_work
@@ -47,7 +47,7 @@ ECHO  3- To Restore Nokia X type: 3 then f then c
 ECHO  4- To Restore Nokia XL type: 4 then f then c
 ECHO. -----------------------------------------
 ECHO  Select What do you want to do by Entering number below
-echo   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+echo   Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„Ã„
 echo.
 ECHO  1)Re-Partition Nokia X To System 950MB And Data 2GB
 ECHO  2)Re-Partition Nokia XL To System 950MB And Data 2GB
@@ -61,6 +61,7 @@ ECHO  r)Reboot To TWRP 2.8.7 Recovery
 ECHO  b)Backup important partitions to PC
 ECHO  c)Check Partition Table
 ECHO  f)Format After Re-Partition -Necessary-
+ECHO  s)Support on XDA-Developers
 ECHO. -----------------------------------------
 ECHO  x) Exit
 ECHO  Don't forget to flash new ROM
@@ -119,6 +120,11 @@ if %menu%==f (
 if %menu%==b (
 	set menutext=Backup important partitions to PC
 	call BackupParts.bat && call :Copy_to_PC && start C:\Users\%username%\Documents\Partitons_Backup
+	pause
+)
+if %menu%==s (
+	set menutext=Support on XDA-Developers
+	start http://forum.xda-developers.com/nokia-x/development/tool-ultrapart-easy-automatic-tool-to-t3517380
 	pause
 )
 if %menu%==x goto end
