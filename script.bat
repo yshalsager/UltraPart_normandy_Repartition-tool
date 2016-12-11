@@ -93,7 +93,7 @@ if %menu%==5 (
 )
 if %menu%==d (
 	set menutext=Install Nokia X/XL Drivers
-    start /d "drivers" DPInst32.exe	> nul && start /d "drivers" DPInst64.exe > nul && copy drivers\ADB\adb_usb.ini C:\Users\%username%\.android
+	call :drivers && copy drivers\ADB\adb_usb.ini C:\Users\%username%\.android
 	pause
 )
 if %menu%==i (
@@ -146,6 +146,16 @@ echo.
 echo ^> Copying to C:\Users\%username%\Documents\Partitons_Backup...
 adb kill-server > nul && adb pull /sdcard/mmcblk0p20.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p20.img > nul && adb pull /sdcard/mmcblk0p23.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p23.img > nul && adb pull /sdcard/mmcblk0p24.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p24.img > nul && adb pull /sdcard/mmcblk0p25.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p25.img > nul && adb pull /sdcard/mmcblk0p26.img C:\Users\%username%\Documents\Partitons_Backup\mmcblk0p26.img > nul
 
+:drivers
+if defined ProgramFiles(x86) (
+    echo Windows 64-bit detected   
+    start /d "drivers" DPInst64.exe > nul
+) else (
+    echo Windows 32-bit detected  
+    start /d "drivers" DPInst32.exe > nul
+)
+goto :eof
+
 :end
 adb kill-server > nul
 call :head
@@ -173,7 +183,7 @@ echo.
 echo.
 echo                     Enjoy increased Storage !!
 echo                 Don't Forget to Hit Thanks on XDA
-echo.
+echo http://forum.xda-developers.com/nokia-x/development/tool-ultrapart-easy-automatic-tool-to-t3517380
 echo.
 echo.
 echo.
