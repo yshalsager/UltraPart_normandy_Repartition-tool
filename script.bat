@@ -16,7 +16,7 @@ goto :eof
 cls
 ECHO.      -----------------------------------------
 ECHO        UltraPart: Re-Partition Nokia X/XL Tool
-ECHO                   Version 1.04
+ECHO                   Version 1.06
 ECHO.      -----------------------------------------
 ECHO       Developed by YSH ALSAGER -UltraDevs Team-
 ECHO.      -----------------------------------------
@@ -28,7 +28,7 @@ goto :eof
 call :head
 echo.
 echo    %menutext%
-echo   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+echo  -----------------------------------------
 goto :eof
 
 :menu_work
@@ -47,7 +47,7 @@ ECHO  3- To Restore Nokia X type: 3 then f then c
 ECHO  4- To Restore Nokia XL type: 4 then f then c
 ECHO. -----------------------------------------
 ECHO  Select What do you want to do by Entering number below
-echo   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+echo  -----------------------------------------
 echo.
 ECHO  1)Re-Partition Nokia X To System 950MB And Data 2GB
 ECHO  2)Re-Partition Nokia XL To System 950MB And Data 2GB
